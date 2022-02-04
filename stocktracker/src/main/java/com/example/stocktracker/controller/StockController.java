@@ -73,4 +73,17 @@ public class StockController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("something went wrong");
         }
     }
+
+    @DeleteMapping("stocks/{ticker}")
+    public ResponseEntity deleteStock(@PathVariable String ticker) {
+        try {
+            stockRepository.deleteById(ticker);
+            return ResponseEntity.status(HttpStatus.OK).body("deleted stock from respository");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("something went wrong");
+        }
+
+    }
 }
