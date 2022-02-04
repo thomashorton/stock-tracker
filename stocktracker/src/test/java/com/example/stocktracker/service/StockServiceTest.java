@@ -39,6 +39,5 @@ class StockServiceTest {
         assertThrows(IOException.class, () -> {
             stockService.findStock(INVALID_STOCK_TICKER);
         });
-
     }
 }
